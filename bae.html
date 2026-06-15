@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미스터뚜럿 - 착한견적 바른작업 배관막힘 해결전문</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 기본 고딕 눈누 폰트 및 초기화 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+            letter-spacing: -0.05em;
+        }
+
+        body {
+            background-color: #111111;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* 공통 스타일 요소 */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .gold-text {
+            color: #cca43b;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .section-title span {
+            color: #cca43b;
+        }
+
+        /* 1. Header (상단 고정 바) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(17, 17, 17, 0.95);
+            border-bottom: 2px solid #cca43b;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .header-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #cca43b;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-call-top {
+            background: linear-gradient(135deg, #cca43b, #e5c158);
+            color: #111;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+        }
+
+        .btn-talk-top {
+            background-color: #fee500;
+            color: #222;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 2. Hero Section (첫 화면 + DB 입력창) */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(17,17,17,1)), url('https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #dddddd;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: #cca43b;
+            color: #111;
+            padding: 4px 10px;
+            font-weight: 700;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* DB 입력창 스타일 */
+        .db-form-box {
+            background-color: #1e1e1e;
+            border: 2px solid #cca43b;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .db-form-box h3 {
+            font-size: 1.3rem;
+            color: #cca43b;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #2b2b2b;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #cca43b;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #cca43b, #e5c158);
+            border: none;
+            color: #111;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: #cca43b;
+        }
+
+        /* 3. Pain Point (공감대 형성) */
+        .pain-point {
+            padding: 80px 0;
+            background-color: #181818;
+        }
+
+        .pain-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pain-box {
+            background-color: #222;
+            border-left: 5px solid #ff4444;
+            padding: 25px;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+        }
+
+        .pain-box p {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #eee;
+        }
+
+        .pain-box i {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: rgba(255, 68, 68, 0.2);
+            font-size: 2rem;
+        }
+
+        /* 4. Solution (신뢰성 증명 및 서비스 소개) */
+        .solution {
+            padding: 80px 0;
+        }
+
+        .promises-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .promise-card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .promise-card:hover {
+            transform: translateY(-5px);
+            border-color: #cca43b;
+        }
+
+        .promise-icon {
+            font-size: 2.5rem;
+            color: #cca43b;
+            margin-bottom: 20px;
+        }
+
+        .promise-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .promise-card p {
+            font-size: 0.95rem;
+            color: #aaa;
+        }
+
+        /* 제공 서비스 체크리스트 */
+        .services-box {
+            background-color: #181818;
+            border: 1px dashed #cca43b;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-box h4 {
+            font-size: 1.4rem;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #cca43b;
+        }
+
+        .service-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .service-list li {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .service-list li i {
+            color: #cca43b;
+        }
+
+        /* 5. Review (사회적 증거) */
+        .review {
+            padding: 80px 0;
+            background-color: #181818;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .review-card {
+            background-color: #222;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #cca43b;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            color: #ddd;
+            font-style: italic;
+        }
+
+        .youtube-box {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-youtube {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #ff0000;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-youtube:hover {
+            transform: scale(1.05);
+        }
+
+        /* 6. C_T_A (최종 행동 유도) */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(rgba(204, 164, 59, 0.15), rgba(17, 17, 17, 1));
+            border-top: 1px solid #cca43b;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .btn-final-call {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #d44f37, #ff4444);
+            color: #fff;
+            padding: 20px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(255,68,68,0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* Footer & 하단 고정 모바일 바 */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px 0 110px 0; /* 모바일 하단바 공간 확보 */
+            text-align: center;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .sns-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sns-icon {
+            color: #aaa;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .sns-icon:hover {
+            color: #cca43b;
+        }
+
+        /* 모바일 전용 하단 고정 바 (Thumb Zone 최적화) */
+        .mobile-fixed-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            background-color: #111;
+            grid-template-columns: 1fr 1fr;
+            border-top: 2px solid #cca43b;
+            z-index: 9999;
+        }
+
+        .mobile-bar-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            gap: 4px;
+        }
+
+        .m-call {
+            background: linear-gradient(135deg, #cca43b, #e5c158);
+            color: #111;
+        }
+
+        .m-talk {
+            background-color: #fee500;
+            color: #222;
+        }
+
+        /* 반응형 레이아웃 미디어 쿼리 */
+        @media (max-width: 991px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-text {
+                text-align: center;
+            }
+            .promises-grid {
+                grid-template-columns: 1fr;
+            }
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-buttons {
+                display: none; /* 모바일에서는 상단 버튼 숨기고 하단바 활성화 */
+            }
+            .mobile-fixed-bar {
+                display: grid;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-wrap">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-wrench"></i> 미스터뚜럿
+            </a>
+            <div class="header-buttons">
+                <a href="tel:01066709087" class="btn-call-top"><i class="fa-solid fa-phone"></i> 24시 전화걸기</a>
+                <a href="#" class="btn-talk-top" onclick="alert('카카오톡 상담으로 이동합니다.')"><i class="fa-solid fa-comment"></i> 문자/카톡상담</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="hero-badge">착한 견적 바른 작업, 미해결 시 0원!</span>
+                <h1>꽉 막힌 배관,<br><span class="gold-text">스트레스까지 시원하게</span><br>뚫어드립니다!</h1>
+                <p><i class="fa-solid fa-check gold-text"></i> 서울 / 경기 전 지역 24시간 출장비 추가 無!</p>
+                <p><i class="fa-solid fa-check gold-text"></i> 평일, 주말, 공휴일, 야간, 심야 언제든 즉시 출동 가능</p>
+            </div>
+            
+            <div class="db-form-box">
+                <h3><i class="fa-solid fa-file-invoice"></i> 무료 견적/상담 신청</h3>
+                <form onsubmit="alert('상담 신청이 완료되었습니다. 신속하게 연락드리겠습니다!'); return false;">
+                    <div class="form-group">
+                        <input type="text" placeholder="고객명 또는 업체명" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="연락처 (예: 010-1234-5678)" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">-- 막힌 위치 선택 --</option>
+                            <option value="변기">변기 막힘</option>
+                            <option value="싱크대">싱크대 막힘</option>
+                            <option value="하수구">하수구 역류</option>
+                            <option value="세면대">세면대/욕실</option>
+                            <option value="기타">기타 배관 상담</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="3" placeholder="증상을 간단히 적어주시면 빠른 상담에 도움이 됩니다."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">지금 바로 무료 견적 받기 <i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="pain-point">
+        <div class="container">
+            <h2 class="section-title">혹시 <span>이런 상황</span>으로 답답하십니까?</h2>
+            <div class="pain-container">
+                <div class="pain-box">
+                    <p>"한밤중에 갑자기 역류하는 하수구, 주말에 꽉 막혀버린 변기 때문에 당황하셨죠?"</p>
+                    <i class="fa-solid fa-face-frown"></i>
+                </div>
+                <div class="pain-box">
+                    <p>"부르는 게 값인 거품 낀 뻥튀기 견적과 대충 뚫고 가서 며칠 뒤 또 막히는 불량 시공에 지치셨나요?"</p>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title">왜 많은 분들이 <span>'미스터뚜럿'</span>을 찾을까요?</h2>
+            
+            <div class="promises-grid">
+                <div class="promise-card">
+                    <div class="promise-icon"><i class="fa-solid fa-won-sign"></i></div>
+                    <h4>미해결 시 0원</h4>
+                    <p>정확한 원인을 찾지 못하거나 뚫지 못하면 절대 단 1원도 요구하지 않습니다.</p>
+                </div>
+                <div class="promise-card">
+                    <div class="promise-icon"><i class="fa-solid fa-ban"></i></div>
+                    <h4>출장비 추가 X</h4>
+                    <p>서울/경기 전 지역, 주간·야간·심야·공휴일 언제나 추가 출장비 없이 무료 출동!</p>
+                </div>
+                <div class="promise-card">
+                    <div class="promise-icon"><i class="fa-solid fa-toolbox"></i></div>
+                    <h4>착한 견적, 바른 작업</h4>
+                    <p>첨단 배관 내시경 및 최신 장비로 투명하게 원인을 확인시켜 드린 후 정직하게 작업합니다.</p>
+                </div>
+            </div>
+
+            <div class="services-box">
+                <h4><i class="fa-solid fa-star"></i> 미스터뚜럿 전문 서비스 분야</h4>
+                <ul class="service-list">
+                    <li><i class="fa-solid fa-circle-check"></i> 변기 / 세면대 / 싱크대 / 하수구 막힘 및 강력 역류 해결</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 배관 내시경 검사 및 정밀 스케일링, 고압세척 공사</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 겨울철 꽁꽁 언 수도 녹임 (해빙 작업) 및 심야 긴급 출동 전문</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="review">
+        <div class="container">
+            <h2 class="section-title">백문이 불여일견! <span>진짜 후기</span></h2>
+            
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span>당근마켓 이용자 후기</span>
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="review-text">"한밤중인데도 연락드린 지 30분 만에 달려와 주셨어요. 원인도 내시경으로 직접 보여주시고 비용도 말씀하신 그대로라 너무 믿음직스러웠습니다!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span>블로그 방문 고객 후기</span>
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="review-text">"싱크대 물이 안 내려가서 고생했는데 싹 뚫고 스케일링까지 해주시니 새 배관이 되었네요. 주변에 막힌 곳 있으면 무조건 여기 추천할 겁니다."</p>
+                </div>
+            </div>
+
+            <div class="youtube-box">
+                <a href="https://www.youtube.com/@%EB%AF%B8%EC%8A%A4%ED%84%B0%EB%9A%9C%EB%9F%BF" target="_blank" class="btn-youtube">
+                    <i class="fa-brands fa-youtube"></i> 미스터뚜럿 생생한 작업 영상 보러가기 ▶
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>"지금 바로 연락 주시면, <span class="gold-text">가장 빠르게</span> 출동합니다!"</h2>
+            <p>365일 24시간 언제나 대기 중. 고민하는 사이 막힘과 역류 피해는 더 심해집니다.</p>
+            
+            <div class="cta-buttons">
+                <a href="tel:01066709087" class="btn-final-call">
+                    <i class="fa-solid fa-phone-volume"></i> 010-6670-9087 전화하기
+                </a>
+                <p style="margin-bottom:0; font-size:0.95rem; color:#aaa;">▲ 스마트폰에서 클릭 시 즉시 전화로 연결됩니다 ▲</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="sns-links">
+                <a href="https://blog.naver.com/mingdrain" target="_blank" class="sns-icon" title="네이버 블로그"><i class="fa-solid fa-b"></i></a>
+                <a href="https://www.instagram.com/mr.drain_official" target="_blank" class="sns-icon" title="인스타그램"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://naver.me/52RpHCqF" target="_blank" class="sns-icon" title="네이버 지도"><i class="fa-solid fa-map-location-dot"></i></a>
+                <a href="https://www.daangn.com/kr/local-profile/qrir284sag69/" target="_blank" class="sns-icon" title="당근마켓"><i class="fa-solid fa-carrot"></i></a>
+            </div>
+            <p>© 미스터뚜럿. All Rights Reserved. 착한견적 바른작업 배관케어 전문 서비스.</p>
+            <p style="margin-top: 5px; font-size: 0.8rem; color: #444;">본 페이지는 고객 상담 및 DB 수집용 랜딩페이지입니다.</p>
+        </div>
+    </footer>
+
+    <div class="mobile-fixed-bar">
+        <a href="tel:01066709087" class="mobile-bar-btn m-call">
+            <i class="fa-solid fa-phone fa-lg"></i>
+            <span>24시 전화걸기</span>
+        </a>
+        <a href="#" class="mobile-bar-btn m-talk" onclick="alert('카카오톡 상담으로 이동합니다.')">
+            <i class="fa-solid fa-comment fa-lg"></i>
+            <span>문자/카톡상담</span>
+        </a>
+    </div>
+
+</body>
+</html>
