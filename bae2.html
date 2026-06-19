@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하수구 원킬케어 - 타업체 실패 현장 99.9% 해결</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+            letter-spacing: -0.03em;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-blue { color: #2b61e1; }
+        .bg-blue { background-color: #2b61e1; }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .header-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 75px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #2b61e1;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: #2b61e1;
+            color: #fff;
+            text-align: center;
+            line-height: 35px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .header-btns {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-call {
+            color: #2b61e1;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-kakao {
+            background-color: #fee500;
+            color: #3c1e1e;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 75px;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        }
+
+        .hero-wrap {
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #111;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            word-break: keep-all;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .badge-wrap {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: #2b61e1;
+            color: #fff;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* DB Form */
+        .db-form {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-top: 5px solid #2b61e1;
+        }
+
+        .db-form h3 {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #111;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #fdfdfd;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2b61e1;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: #2b61e1;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: #1e4bb0;
+        }
+
+        /* Q&A Section */
+        .qa-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 60px;
+            color: #111;
+        }
+
+        .qa-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .qa-box {
+            background: #f8faff;
+            border: 1px solid #e0eafc;
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .qa-box:hover {
+            box-shadow: 0 10px 25px rgba(43, 97, 225, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .qa-box .q-text {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .qa-box .a-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #2b61e1;
+            margin-bottom: 15px;
+            word-break: keep-all;
+        }
+
+        .qa-box .a-desc {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: #2b61e1;
+            padding: 60px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .cta-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .cta-inner h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cta-inner .links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-blog {
+            background: #03c75a;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Mobile Bottom Bar */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            z-index: 9999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-bar a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .m-kakao { background: #fee500; color: #3c1e1e; }
+        .m-call { background: #2b61e1; color: #fff; }
+
+        @media (max-width: 991px) {
+            .hero-wrap { grid-template-columns: 1fr; }
+            .qa-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .header-btns { display: none; }
+            .mobile-bar { display: flex; }
+            body { padding-bottom: 75px; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .cta-inner h2 { font-size: 1.6rem; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-wrap">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-droplet"></i></span> 하수구 원킬케어
+            </a>
+            <div class="header-btns">
+                <a href="tel:01081238285" class="btn-call"><i class="fa-solid fa-phone-volume"></i> 010-8123-8285</a>
+                <a href="#" class="btn-kakao"><i class="fa-solid fa-comment"></i> 1:1 채팅상담</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-wrap">
+            <div class="hero-text">
+                <div class="badge-wrap">
+                    <span class="badge">출장비 0원</span>
+                    <span class="badge">미해결시 0원</span>
+                </div>
+                <h1>타업체가 포기한 하수구,<br><span class="text-blue">99.9% 완벽하게 원킬!</span></h1>
+                <p>수도권 전 지역 365일 24시간 긴급출동. 어떤 현장도 문제없습니다.</p>
+            </div>
+            
+            <div class="db-form">
+                <h3><i class="fa-regular fa-clock"></i> 365일 24시간 긴급 출동 접수</h3>
+                <form onsubmit="alert('상담 신청이 완료되었습니다.'); return false;">
+                    <div class="input-group">
+                        <input type="text" placeholder="고객명" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" placeholder="연락처 (010-XXXX-XXXX)" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="증상 (예: 하수구가 역류해요)" required>
+                    </div>
+                    <button type="submit" class="btn-submit">무료 견적/상담 신청하기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="qa-section">
+        <div class="container">
+            <h2 class="section-title">왜 <span class="text-blue">원킬케어</span>를 선택해야 할까요?</h2>
+            
+            <div class="qa-grid">
+                <div class="qa-box">
+                    <div class="q-text">Q. 출장비가 따로 있을까요?</div>
+                    <div class="a-text">출장비는 없습니다.</div>
+                    <div class="a-desc">고객님의 부담을 덜어드리기 위해 기본 출장비는 0원입니다. (단, 특수 상황과 경우에 따라 청구될 수 있습니다.)</div>
+                </div>
+                
+                <div class="qa-box">
+                    <div class="q-text">Q. 만약, 해결이 안 돼도 비용을 드려야 하나요?</div>
+                    <div class="a-text">미해결 시 비용은 없습니다.</div>
+                    <div class="a-desc">해결하지 못한 현장에 대해 청구 드릴 금액은 0원이며, 이는 작업이 가능한 현장에 한하여 적용됩니다.</div>
+                </div>
+
+                <div class="qa-box">
+                    <div class="q-text">Q. 배수구가 막혔는데 급히 와주실 수 있나요?</div>
+                    <div class="a-text">네! 물론입니다.</div>
+                    <div class="a-desc">수도권 전 지역 어디든지 문의만 주시면 빠르게 현장으로 긴급출동하여 문제를 해결해 드립니다.</div>
+                </div>
+
+                <div class="qa-box">
+                    <div class="q-text">Q. 타업체에서 실패하고 돌아갔는데 해결이 될까요?</div>
+                    <div class="a-text">99.9% 해결 가능합니다.</div>
+                    <div class="a-desc">다년간의 경력과 수많은 현장 경험을 보유한 베테랑 작업자이며, 최신 장비를 보유하고 있어 어떤 현장도 자신 있습니다.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container cta-inner">
+            <div class="links">
+                <a href="#" class="btn-kakao" style="font-size: 1.1rem; padding: 12px 25px;"><i class="fa-solid fa-comment"></i> 카카오톡 1:1 채팅상담</a>
+                <a href="#" class="btn-blog"><i class="fa-brands fa-blogger-b"></i> 네이버 블로그 작업사례 확인</a>
+            </div>
+            <h2><i class="fa-solid fa-phone-volume"></i> 전화문의 010-8123-8285</h2>
+        </div>
+    </section>
+
+    <div class="mobile-bar">
+        <a href="#" class="m-kakao">
+            <i class="fa-solid fa-comment fa-lg" style="margin-bottom: 5px;"></i> 카톡 상담
+        </a>
+        <a href="tel:01081238285" class="m-call">
+            <i class="fa-solid fa-phone fa-lg" style="margin-bottom: 5px;"></i> 24시 전화 연결
+        </a>
+    </div>
+
+</body>
+</html>
