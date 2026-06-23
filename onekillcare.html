@@ -291,6 +291,82 @@
             gap: 8px;
         }
 
+        /* Reviews Section */
+        .reviews-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .reviews-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 60px;
+            color: #111;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .review-card {
+            background: #f8faff;
+            border: 1px solid #e0eafc;
+            border-radius: 15px;
+            padding: 35px;
+            transition: 0.3s;
+            border-top: 4px solid #2b61e1;
+        }
+
+        .review-card:hover {
+            box-shadow: 0 12px 30px rgba(43, 97, 225, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .review-name {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #111;
+        }
+
+        .review-rating {
+            color: #ffc107;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .review-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #2b61e1;
+            margin-bottom: 12px;
+            word-break: keep-all;
+        }
+
+        .review-content {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .review-footer {
+            font-size: 0.9rem;
+            color: #2b61e1;
+            font-weight: 700;
+            padding-top: 12px;
+            border-top: 1px solid #e0eafc;
+        }
+
         /* Mobile Bottom Bar */
         .mobile-bar {
             display: none;
@@ -320,6 +396,7 @@
         @media (max-width: 991px) {
             .hero-wrap { grid-template-columns: 1fr; }
             .qa-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -328,6 +405,8 @@
             body { padding-bottom: 75px; }
             .hero-text h1 { font-size: 2.2rem; }
             .section-title { font-size: 1.8rem; }
+            .reviews-title { font-size: 1.8rem; }
+            .reviews-grid { grid-template-columns: 1fr; }
             .cta-inner h2 { font-size: 1.6rem; flex-direction: column; }
         }
     </style>
@@ -402,6 +481,74 @@
                     <div class="q-text">Q. 타업체에서 실패하고 돌아갔는데 해결이 될까요?</div>
                     <div class="a-text">99.9% 해결 가능합니다.</div>
                     <div class="a-desc">다년간의 경력과 수많은 현장 경험을 보유한 베테랑 작업자이며, 최신 장비를 보유하고 있어 어떤 현장도 자신 있습니다.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="reviews-title">실제 고객님들의 <span class="text-blue">생생한 후기</span></h2>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-name">김*영</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <div class="review-title">새벽에 하수구 역류했는데 바로 와주셨어요</div>
+                    <div class="review-content">주방 하수구에서 물이 역류해서 새벽에 급하게 연락드렸는데 생각보다 빨리 도착하셨습니다. 단순히 뚫기만 하는 게 아니라 왜 막혔는지 설명도 해주시고 앞으로 관리하는 방법도 알려주셨어요. 덕분에 지금까지 문제 없이 사용 중입니다.</div>
+                    <div class="review-footer">✓ 급한 상황에 믿고 맡길 수 있어요</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-name">박*수</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <div class="review-title">타 업체에서 못 뚫은 걸 해결했습니다</div>
+                    <div class="review-content">이미 다른 업체를 불렀다가 해결을 못해서 반신반의했는데 여기서는 카메라 장비로 확인 후 원인을 바로 찾더라고요. 배관 깊숙한 곳에 이물질이 걸려 있었는데 깔끔하게 제거해 주셨습니다. 괜히 여러 군데 부르지 말고 처음부터 여기 부를 걸 그랬네요.</div>
+                    <div class="review-footer">✓ 전문성이 느껴졌습니다</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-name">이*정</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <div class="review-title">변기 막힘 때문에 스트레스였는데</div>
+                    <div class="review-content">아이 장난감이 들어가면서 변기가 막혀 물이 넘칠 뻔했는데 빠르게 처리해주셨습니다. 작업 시간도 오래 걸리지 않았고 화장실 정리까지 깔끔하게 해주셔서 만족했습니다. 설명도 친절하게 해주셔서 좋았어요.</div>
+                    <div class="review-footer">✓ 친절한 서비스에 만족</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-name">최*훈</span>
+                        <span class="review-rating">★★★★☆</span>
+                    </div>
+                    <div class="review-title">식당 배수 문제 해결했습니다</div>
+                    <div class="review-content">식당 주방 배수관이 자꾸 막혀 영업할 때마다 신경 쓰였는데 고압세척 작업 후 물 빠짐이 정말 좋아졌습니다. 작업 전후 상태를 직접 보여주셔서 더 신뢰가 갔어요. 비용도 생각했던 수준이라 만족합니다.</div>
+                    <div class="review-footer">✓ 영업 중단 없이 작업 가능</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-name">정*미</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <div class="review-title">악취 문제까지 해결됐어요</div>
+                    <div class="review-content">화장실에서 계속 하수구 냄새가 올라와서 여러 방법을 써봤는데 소용이 없었습니다. 원인을 정확히 찾아서 배관 청소와 점검을 진행해 주셨고 그 이후로 냄새가 거의 사라졌어요. 왜 진작 부르지 않았나 싶네요.</div>
+                    <div class="review-footer">✓ 냄새 때문에 고민이라면 추천</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="review-name">윤*호</span>
+                        <span class="review-rating">★★★★★</span>
+                    </div>
+                    <div class="review-title">상담부터 작업까지 깔끔했습니다</div>
+                    <div class="review-content">전화 상담할 때부터 대략적인 비용과 작업 방법을 설명해 주셔서 안심이 됐습니다. 현장에서도 추가 비용을 강요하지 않았고, 막힘 원인을 확인한 후 필요한 작업만 진행해 주셨어요. 요즘 보기 드문 정직한 업체 같습니다.</div>
+                    <div class="review-footer">✓ 재방문 의사 있습니다</div>
                 </div>
             </div>
         </div>
